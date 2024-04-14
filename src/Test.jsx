@@ -1,9 +1,11 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'
 function Test() {
   return (
    <div>
-    <Typography variant="h5" sx={{color:"red",border:"2px solid black",borderRadius:'10px'}} >Hello world type</Typography>
+   <Button onClick={()=>alert("button Clicked frist")} color="success" sx={{margin:3}} size="small"  variant="text">frist</Button>
+   <Button onClick={()=>alert("button Clicked second")} color="error" sx={{margin:3}} size="medium" variant="contained">Second</Button>
+   <Button onClick={()=>alert("button Clicked third")} color="secondary" sx={{margin:3}} size="large" variant="">third</Button>
    </div>
   );
 }
