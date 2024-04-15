@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField'
-import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 function Test() {
    const [inputs,setInputs] = useState({
     name:"",
     email:"",
     passworld:"",
-    subscribe: false
+    subscribe: false,
+    age:0
    })
  
    const handleChange = (e) =>{
@@ -42,7 +43,21 @@ setInputs((pre)=>({
 
   }} />} label="subscribe the news latter" />  
 </FormGroup>
-
+{/* select */}
+<FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label">Age</InputLabel>
+  <Select
+    labelId="demo-simple-select-label"
+    name="age"
+    label="Age"
+    value={inputs.age || ''} // Ensure that the value matches one of the available options or use an empty string
+    onChange={handleChange}
+  >
+    <MenuItem value={10}>Ten</MenuItem>
+    <MenuItem value={20}>Twenty</MenuItem>
+    <MenuItem value={30}>Thirty</MenuItem>
+  </Select>
+</FormControl>
 
 
 
