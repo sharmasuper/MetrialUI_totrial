@@ -1,21 +1,34 @@
-import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Modal, Tab, Tabs, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, Collapse, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import { useState } from "react";
-
+const array = [{name:"frist",icon:"/"},{name:"second",icon:"||"},{name:"third",icon:"@"},{name:"four",icon:"%"},{name:"mohit",icon:"*"}]
 function Menu() {
-    const [open,setopen] = useState(false)
+
+     const [open,setOpen] = useState(false)
 
    return (
-  <div>
-    <Button onClick={()=>setopen(true)}>Open Dialog</Button>
-     <Modal hideBackdrop open={open} onClose={()=>setopen(false)}>
-       <Box position="absolute" top="50%" left="50%">
-        <Typography>It is a Modal</Typography>
-         <Button onClick={()=>setopen(false)}>Click Me</Button>
-       </Box>
-     </Modal>
-    
-  </div>
-
+      <Box>
+        <List>
+            <ListItem divider>
+                <ListItemButton onClick={()=>setOpen(!open)}>
+                    <ListItemIcon>{"=>"}</ListItemIcon>
+                    <ListItemText primary={"open List"}></ListItemText>
+                </ListItemButton>
+            </ListItem>
+        </List>
+        <Collapse in={open}>
+        <List sx={{width:300,background:"grey"}}>
+            {array.map((listfetch,index)=>{
+         return    <ListItem divider key={index}> 
+                <ListItemButton onClick={()=>setOpen(false)}>
+                    <ListItemIcon>{listfetch.icon}</ListItemIcon>
+                    <ListItemText primary={listfetch.name}></ListItemText>
+                </ListItemButton>
+            </ListItem>
+            })}
+        </List>
+        </Collapse>
+      </Box>
+   
 
    ) 
 }
