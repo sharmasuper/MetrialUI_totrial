@@ -13,8 +13,10 @@ function Test() {
     setInputs((predata)=>({
         ...predata,
         [e.target.name] : e.target.value
-
+       
     }))
+   
+   
    
    }
 
@@ -28,12 +30,17 @@ function Test() {
  <form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column"}}>
 <TextField type={'text'} value={inputs.name} name='name' onChange={handleChange} sx={{margin:3}} id="outlined-basic" label="Outlined" variant="outlined" />
       <TextField type={"email"}  name='email' value={inputs.email} onChange={handleChange} sx={{margin:3}} id="filled-basic" label="Filled" variant="filled" />
-      <TextField type={'password'} name='passworld' value={inputs.passworld} onChange={handleChange} sx={{margin:3}} id="standard-basic" label="Standard" variant="standard" />
+      <TextField type={'password'} name='passworld' error={true} value={inputs.passworld} onChange={handleChange} sx={{margin:3}} id="standard-basic" label="Standard" variant="standard" />
      
 <FormGroup>
-  <FormControlLabel control={<Checkbox onChange={()=>setInputs((pre)=>({
-    ...pre,subscribe:!inputs.subscribe
-  }))} />} label="subscribe the news latter" />  
+  <FormControlLabel  control={<Checkbox onChange={()=>{
+
+setInputs((pre)=>({
+    ...pre,subscribe :!inputs.subscribe
+}))
+     
+
+  }} />} label="subscribe the news latter" />  
 </FormGroup>
 
 
