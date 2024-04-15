@@ -1,31 +1,24 @@
-import { AppBar, Button, Card, CardActions, CardContent, CardMedia, Tab, Tabs, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import { useState } from "react";
 
 function Menu() {
-    const [value,setvalue] = useState(0)
+    const [open,setopen] = useState(false)
 
    return (
   <div>
-     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <Button onClick={()=>setopen(true)}>Open Dialog</Button>
+     <Dialog hideBackdrop open={open} onClose={()=>setopen(false)}>
+        <DialogTitle>This is my Dialog</DialogTitle>
+        <DialogContent>
+            <DialogContentText>
+               A dialog is a popup window which can ask user simething like an infomation or conformation
+            </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+            <Button onClick={()=>setopen(false)}>cancel</Button>
+            <Button onClick={()=>setopen(false)}>agree</Button>
+        </DialogActions>
+     </Dialog>
     
   </div>
 
