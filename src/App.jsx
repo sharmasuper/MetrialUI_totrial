@@ -4,7 +4,7 @@
 import './App.css'
 import Menu from './Menu'
 
-
+const linksArray = ["Products","Services","Overview","contact Us"]
 
 function App() {
   
@@ -14,7 +14,7 @@ function App() {
      
       {/* <p>Hello</p> */}
       {/* <Test/> */}
-     <Menu/>
+     <Menu links={linksArray}/>
      
     </>
   )
